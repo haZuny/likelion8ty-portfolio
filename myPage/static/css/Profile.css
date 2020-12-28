@@ -1,0 +1,151 @@
+/* set background color */
+#bck_el1{background-color: #F0CECD;}
+#bck_el2{background-color: #D9CDAE;}
+#bck_el3{background-color: #BFB9D9;}
+
+/* 컨테이너 */
+#full_container{
+    /* 크기 */
+    width: 100vw;
+    height: 150vh;
+
+    background-color: #c0ae82;
+
+    padding-top: 15vw;
+
+    position: relative;
+    z-index: 0.1;
+
+    /* 플렉스 디스플레이 */
+    display: flex;
+    justify-content: center;
+}
+
+/* 왼쪽 최상위 컨테이너 */
+#contentBox{
+    /* 사이즈 */
+    width: 40vw;
+    height: 100vh;
+
+    background-color: #e9e2d0;
+
+    border: solid 1.5vh rgb(177, 139, 83);
+
+    /* flex */
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+
+    margin-left: 5vw;
+}
+
+/* 반반 중 왼쪽 사진 및 아이콘 */
+#imgBox{
+    width: 20vw;
+    height: 75vh;
+    margin-bottom: 4vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+#profileImg{
+    width: 18vw;
+    height: auto;
+    margin-top: 5vh;
+    border-radius: 10%;
+}
+/* 하단 주소들 박스 */
+#siteBox{
+    width: 18vw;
+    height: 2vw;
+    display: flex;
+
+    position: relative;
+    z-index: 11;
+}
+#telBox{
+    display: flex;
+    flex-direction: column;
+}
+.tel{
+    font-size: 0.85vw;
+    font-weight: bold;
+}
+.imgIcon{
+    position: relative;
+    z-index: 500;
+    width: 2vw;
+    height: 2vw;
+    margin-left: 0.7vw;
+}
+
+/* 반반 중 오른쪽 글씨 */
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&display=swap');
+#textBox{
+    width: 20vw;
+    height: 75vh;
+    margin-bottom: 4vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#textGroup{
+    height: 75vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.profileTitle{
+    font-family: 'Nanum Gothic Coding', monospace;
+    font-weight: bold;
+    font-size: 4vh;
+}
+.profileContent{
+    font-family: 'Nanum Gothic Coding', monospace;
+    font-size: 2.5vh;
+    font-weight: bold;
+    margin-left: 3vh;
+}
+
+/* 오른쪽 눈사람 이미지 */
+#snowManBox{
+    width: 40vw;
+    height: 103vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+
+    opacity: 0.7;
+}
+.snowman{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+#ground1{
+    background-color: white;
+    width: 11vw;
+    height: 0.7vw;
+    position: absolute;
+    border-radius: 30%;
+}
+#snowManImg1{
+    width: 10vw;
+    height: auto;
+}
+#ground2{
+    background-color: white;
+    width: 8vw;
+    height: 0.7vw;
+    position: absolute;
+    border-radius: 30%;
+}
+#snowManImg2{
+    width: 7vw;
+    height: auto;
+    margin-bottom: 0.3vw;
+}

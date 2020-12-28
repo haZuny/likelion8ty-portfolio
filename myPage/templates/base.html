@@ -1,0 +1,382 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 내장 css -->
+    <style>
+        /* web font */
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&family=Sunflower:wght@300&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Sunflower:wght@300&display=swap');
+
+        /* reset all of margins and paddings */
+        * {
+            margin: 0;
+            padding: 0;
+            position: relative;
+        }
+
+        /* ### Background ### */
+
+        /* 배경 */
+        body{
+            overflow: hidden;
+        }
+        #bck{
+            width: 300vw;
+            display: flex;
+            position: absolute;
+            margin-left: -100vw;
+        }
+        /* set color & size of each background elements */
+        .bck_group{
+            width: 100vw;
+            height: 100vh;
+        }
+        #bck_el1{z-index: 800;}
+        #bck_el2{z-index: -100;}
+        #bck_el3{z-index: 800;}
+        /* define animation whit KeyFrames */
+        @keyframes sildeToLeft{
+            0%      {margin-left: -85vw;}
+            40%    {margin-left: 0vw;}
+            100%    {margin-left: 0vw;}
+        }
+        @keyframes sildeToRight{
+            0%      {margin-left: -115vw;}
+            40%    {margin-left: -200vw;}
+            100%    {margin-left: -200vw;}
+        }
+        /* 화살표 */
+        .arrow{
+            /* size */
+            width: 5vw;
+            height: 5vw;
+            /* 위치 고정 */
+            position: absolute;
+            /* 마진 */
+            margin: 2.5vw;
+            margin-top: 47vh;
+            /* 둥글게 */
+            border-radius: 100%;
+            /* 플렉스 */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #bck_el1{
+            display: flex;
+            flex-direction: row-reverse;
+        }
+        #bck_el3{
+            display: flex;
+            flex-direction: row;
+        }
+
+        /* ### 마우스 오버 공간 ### */
+
+        /* color, size, position */
+        .hoveringSpace{
+            /* size */
+            width:10vw;
+            height: 100vh;
+            /* background */
+            opacity: 0;
+            /* position */
+            position: fixed;
+            z-index: 1000;
+        }
+        /* let left, right */
+        #hoveringSpace_left{
+            margin-left: 0;
+        }
+        #hoveringSpace_right{
+            margin-left: 90vw;
+        }
+        /* define hovering slide animation */
+        @keyframes hoveringSlideLeft{
+            0%      {margin-left: -100vw;}
+            100%      {margin-left: -90vw;}
+        }
+        @keyframes hoveringSlideRight{
+            0%      {margin-left: -100vw;}
+            100%      {margin-left: -110vw;}
+        }
+        @keyframes hoverOutLeft{
+            0%      {margin-left: -90vw;}
+            100%      {margin-left: -100vw;}
+        }
+        @keyframes hoverOutRight{
+            0%      {margin-left: -110vw;}
+            100%      {margin-left: -100vw;}
+        }
+
+        /* ### 배너 ### */
+
+        /* size and background */
+        #banner{
+            /* flex display */
+            display: flex;
+            align-items: center;
+            /* position */
+            position: relative;
+            /* size */
+            width: 100vw;
+            height: 40vh;
+            /* index */
+            z-index: 500;
+            /* align */
+            text-align: center;
+            
+        }
+        #banner_txt{
+            /* size */
+            width: 100vw;
+            height: 15vh;
+            /* font */
+            font-family: 'Nanum Gothic Coding', monospace;
+            font-size: 9vh;
+            font-weight: bold;
+            
+            color: white;
+        } 
+
+        /* ### 로고 $$$ */
+        #logo_container{
+            /* flex display */
+            display: flex;
+            flex-direction: column;
+                /* column center */
+            justify-content: center;
+                /* row center */
+            align-items: center;
+            /* position */
+            position: relative;
+            /* size */
+            width: 100vw;
+            height: 60vh;
+            
+            z-index: 500;
+        }
+        #logoImg{
+            /* size */
+            width: 15vw;
+            height: 15vw;
+            /* margin */
+            margin: 3vh;
+
+            position: relative;
+            z-index: 501;
+        }
+        #logoText{
+            /* font */
+            font-family: 'Sunflower', sans-serif;
+            font-size: 4.3vh;
+            color: white;
+
+            position: relative;
+            z-index: 501;
+        }
+
+        /* 캔버스 */
+        #s_canvas{
+            width: 100vw;
+            height: 100vh;
+            position: absolute;
+            z-index: 10;
+        }
+    </style>
+    <!-- css load -->
+    <link rel="stylesheet" href="{% block css %}{% endblock %}">
+    <!-- 제이쿼리 -->
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <title>권하준의 포트폴리오</title>
+</head>
+    <body>
+        <!-- 배경, 슬라이드 -->
+        <div id="bck" >
+            <div id="bck_el1" class="bck_group"><img id="arrowL" class="arrow" src="{% static 'img/arrowR.png' %}" alt="left"></div>
+            <div id="bck_el2" class="bck_group"></div>
+            <div id="bck_el3" class="bck_group"><img id="arrowR" class="arrow" src="{% static 'img/arrowL.png' %}"></div>
+        </div>
+
+        <!-- 눈 내리는 공간, 캔버스 -->
+        <canvas id="s_canvas"></canvas>
+
+        <!-- 호버링 영역 -->
+        <div id="hoveringSpace_left" class="hoveringSpace" onmouseover="hoveringLeft()" onclick="slideToLeft()" onmouseout="hoverOutLeft()"></div>
+        <div id="hoveringSpace_right" class="hoveringSpace" onmouseover="hoveringRight()" onclick="slideToRight()" onmouseout="hoverOutRight()"></div>
+
+
+        <!-- 배너 -->
+        <div id="banner" class="pageContents">
+            <div id="banner_txt">Hajun's Portfolio Page</div>
+        </div>
+
+        <!-- 로고 -->
+        <div id="logo_container">
+            <img id = "logoImg" src="{% block logo %}{% endblock %}">
+            <div id="logoText">{% block logoText %}{% endblock%}</div>
+        </div>
+
+        {% block content %}{% endblock %}
+
+        <!-- 각 페이지 주소(js에서는 장고 태그 사용 불가, html태그를 변수처럼 사용) -->
+        <div id="profileLink" link = "{% url 'profile' %}"></div>
+        <div id="projectsLink" link = "{% url 'projects' %}"></div>
+        <div id="languageLink" link = "{% url 'language' %}"></div>
+        <div id="page" page="0"></div>
+        <div id="pageMax" pageMax="0"></div>
+
+
+
+        <!-- ###자바스크립트### load -->
+        <script type="text/javascript" src="{% block js%}{% endblock %}"></script>
+
+        <!-- 내장 자바스크립트 -->
+        <script>
+            //document.getElementById("logo_container").style.height = "68vh";
+
+            // 마우스 오버 동작
+            function hoveringLeft(){
+                bck = document.getElementById("bck");
+                bck.style.animation = "0.2s hoveringSlideLeft";
+                bck.style.marginLeft = "-90vw";
+            }
+            function hoveringRight(){
+                bck = document.getElementById("bck");
+                bck.style.animation = "0.2s hoveringSlideRight";
+                bck.style.marginLeft = "-110vw";
+            }
+
+            function hoverOutLeft(){
+                bck = document.getElementById("bck");
+                bck.style.animation = "0.2s hoverOutLeft";
+                bck.style.marginLeft = "-100vw";
+            }
+            function hoverOutRight(){
+                bck = document.getElementById("bck");
+                bck.style.animation = "0.2s hoverOutRight";
+                bck.style.marginLeft = "-100vw";
+            }
+
+            // set background height
+            function setHeight(){
+                var winHeight = document.body.offsetHeight;
+                var bcks = document.getElementsByClassName("bck_group");
+                for(i = 0; i < bcks.length; i++){
+                    bcks[i].style.height = winHeight+"px";
+                }
+            }
+            setHeight();
+
+            // 눈 내리는 모습 구현
+
+            // 눈 객체 배열 생성
+            var snowObj = new Array(90);
+
+            // 캔버스 접근
+            var canvas = document.getElementById('s_canvas');
+            var context = canvas.getContext('2d');
+            
+            for (i = 0; i < snowObj.length; i++){
+                snowObj[i] = {
+                    x: Math.floor(Math.random()*(300)),
+                    y: Math.floor(Math.random()*400)*-1 - 5,
+                    speed: Math.random()/4,
+                    size: Math.random() + 1,
+                    opacity: Math.random()/3+0.6,
+                    changeCycle: Math.floor(Math.random()*650)+5,
+                    direction: Math.random()-0.5
+                };
+            }
+            function drawSnow(){
+                
+                context.clearRect(0,0,300, 200);
+                
+                for(i = 0; i < snowObj.length; i++){
+                    // draw
+                    if(i%2 == 0){
+                        context.beginPath();
+                        context. arc(snowObj[i].x, snowObj[i].y, snowObj[i].size, 0, 2.0*Math.PI);
+                        context.fillStyle = "#FFFFFF";
+                        context.globalAlpha = snowObj[i].opacity;
+                        context.fill();
+                    }
+                    else if(i%10 == 1){
+
+                    }
+                    
+                    // 눈 이동
+                    snowObj[i].y += snowObj[i].speed;
+                    if(snowObj[i].direction>0){
+                        snowObj[i].x += Math.random()/15;
+                    }
+                    else{
+                        snowObj[i].x -= Math.random()/15;
+                    }
+                    snowObj[i].changeCycle--;
+                    // 좌 우 방향 변경
+                    if(snowObj[i].changeCycle < 0){
+                        snowObj[i].direction *= -1;
+                        snowObj[i].changeCycle = Math.floor(Math.random()*450)+200;
+                    }
+                    
+                    //화면 벗어나면 다시
+                    if(snowObj[i].y > 200){
+                        snowObj[i].x = Math.floor(Math.random()*(300));
+                        snowObj[i].y = Math.floor(Math.random()*650)*-1 - 10;
+                    }
+                }
+            }
+            setInterval(drawSnow, 10);
+
+            // 마우스 휠로 페이지 단위 이동
+            var page = 0;
+            var pageMax = Number(document.getElementById("pageMax").getAttribute("pageMax"));
+            var banner = document.getElementById('banner');
+            
+            // 휠이벤트 추가
+            var flag = false;   // 중복 방지
+            document.addEventListener('wheel', function(event){
+
+                // 함수가 실행중일 때는 중복실행 불가
+                if (flag){
+                    return flag;
+                }
+                flag = true;
+
+                var downNum = 150;
+                var delta = event.wheelDelta;
+                // 페이지 다운
+                if(delta<0 && page<pageMax){
+                    flag = true;
+                    page++;
+                    document.getElementById("page").setAttribute("page", page);
+                    $("#banner").stop().animate({marginTop: -downNum*page+"vh"}, 400);
+                    $("#s_canvas").stop().animate({marginTop:downNum*page+"vh"}, 400);
+                    $(".hoveringSpace").stop().animate({marginTop:downNum*page+"vh"}, 400);
+                    $(".arrow").stop().animate({marginTop: downNum*page+47+"vh"}, 400);
+                }
+                // 페이지 업
+                else if(delta>0 && page > 0){
+                    page--;
+                    document.getElementById("page").setAttribute("page", page);
+                    $("#banner").stop().animate({marginTop: -downNum*page+"vh"}, 400);
+                    $("#s_canvas").stop().animate({marginTop:downNum*page+"vh"}, 400);
+                    $(".hoveringSpace").stop().animate({marginTop:downNum*page+"vh"}, 400);
+                    $(".arrow").stop().animate({marginTop: downNum*page+47+"vh"}, 400);
+                }
+                setTimeout(function(){
+                    flag=false;
+                    updateImgMargin();
+                }, 200);
+                
+            })
+        </script>
+    </body>
+</html>

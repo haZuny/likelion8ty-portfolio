@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block css %}{% static "css/Profile.css" %}{% endblock %}
+
+{% block logo %}{% static "img/ProfileLogo.png" %}{% endblock %}
+
+{% block logoText %}프로필 및 경력{% endblock %}
+
+{% block js %}{% static 'js/Profile.js' %}{% endblock %}
+
+{% block content %}
+
+<!-- 컨테이너 -->
+<div id ='full_container'>
+
+    <div id="contentBox">
+        <div id="imgBox">
+            <!-- 프로필 이미지 -->
+            <img id="profileImg" src="{% static 'img/profile.jpg' %}">
+            <!-- 주소 -->
+            <div id="siteBox">
+                <div id="telBox">
+                    <div class="tel">hj3175791@gmail.com</div>
+                    <div class="tel">gkwns5791@naver.com</div>
+                </div>
+                <a target="_blank" href="https://github.com/haZuny"><img class="imgIcon" src="{% static 'img/git.png' %}"></a>
+                <a target="_blank" href="https://www.instagram.com/ha.zuny/"><img class="imgIcon" src="{% static 'img/insta.png' %}"></a>
+                <a target="_blank" href="https://blog.naver.com/gkwns5791"><img class="imgIcon" src="{% static 'img/blog.png' %}"></a>
+            </div>
+        </div>
+
+        <div id="textBox">
+            <div id="textGroup">
+                <div class = "profileTitle">Profile</div>
+                <div class = "profileContent">이름: 권하준</div>
+                <div class = "profileContent">생일: 2000.12.09</div>
+                <div class = "profileContent">전공: 컴퓨터공학</div>
+                <div class = "profileContent">자격증: </div>
+                <div class = "profileContent" style="font-size: 2vh; margin-left: 4vh;">&nbsp&nbsp- CosPro 1급(Python)</div>
+                <div class = "profileContent">소개: 컴공과오지마세여😂</div>
+                <div class = "profileContent"><br></div>
+                
+                <div class = "profileTitle">Career</div>
+                <div class = "profileContent">2017: 연성중학교 졸업</div>
+                <div class = "profileContent">2019: 시흥고등학교 졸업</div>
+                <div class = "profileContent">2019: 순천향대학교 입학</div>
+                <div class = "profileContent">2020: 멋쟁이사자처럼 등록</div>
+                <div class = "profileContent">2020: 알까고대회 준우승</div>
+            </div>
+        </div>
+
+    </div>
+
+    <div id="snowManBox">
+        <div class="snowman">
+            <img id="snowManImg1" src = "{% static 'img/snowman.png' %}">
+            <div id="ground1"></div>
+        </div>
+        <div class="snowman">
+            <img id="snowManImg2" src = "{% static 'img/snowman2.png' %}">
+            <div id="ground2"></div>
+        </div>
+    </div>
+
+{% endblock %}

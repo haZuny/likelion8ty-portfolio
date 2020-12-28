@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block css %}{% static "css/Language.css" %}{% endblock %}
+
+{% block logo %}{% static "img/LanguageLogo.png" %}{% endblock %}
+
+{% block logoText %}사용한 언어 및 프레임워크{% endblock %}
+
+{% block js %}{% static 'js/Language.js' %}{% endblock %}
+
+{% block content %}
+
+<div id="background">
+
+    <div id="container">
+        
+        <!-- 언어 -->
+        <div id="languageBox">
+
+            <!-- 타이틀 -->
+            <div class="title">
+                <div class="titleText">Language</div>
+            </div>
+
+            <!-- 큰박스 -->
+            <div id="imgBoxBig" class="imgBox">
+                
+                <div id="cBox" class="iconBox">
+                    <img class="iconImg" src="{% static 'img/c.png' %}">
+                    <div class="iconText">C</div>
+                </div>
+
+                <div class="iconBox">
+                    <img class="iconImg" src="{% static 'img/java.png' %}">
+                    <div class="iconText">Java</div>
+                </div>
+
+                <div class="iconBox">
+                    <img class="iconImg" src="{% static 'img/python.png' %}">
+                    <div class="iconText">Python</div>
+                </div>
+
+                <div class="iconBox">
+                    <img class="iconImg" src="{% static 'img/html.png' %}">
+                    <div class="iconText">HTML</div>
+                </div>
+
+                <div class="iconBox">
+                    <img class="iconImg" src="{% static 'img/css.png' %}">
+                    <div class="iconText">CSS</div>
+                </div>
+
+                <div class="iconBox">
+                    <img class="iconImg" src="{% static 'img/js.png' %}">
+                    <div class="iconText">JavaScript</div>
+                </div>
+
+                <div class="iconBox">
+                    <img class="iconImg" src="{% static 'img/asm.png' %}">
+                    <div class="iconText">Assembly</div>
+                </div>
+
+                <div class="iconBox">
+                    <img class="iconImg" src="{% static 'img/sql.png' %}">
+                    <div class="iconText">SQL</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 프레임 -->
+        <div id="frameBox">
+
+            <!-- 타이틀 -->
+            <div class="title">
+                <div class="titleText">Frame</div>
+            </div>
+
+            <!-- 큰박스 -->
+            <div class="imgBox">
+                <div class="iconBox">
+                    <img class="iconImg" src="{% static 'img/django.png' %}">
+                    <div class="iconText">Django</div>
+                </div>
+
+                <div class="iconBoxX">
+                </div>
+
+                <div class="iconBoxX">
+                </div>
+
+                <div class="iconBoxX">
+                </div>
+
+            </div>
+        </div>
+        
+    </div>
+    
+</div>
+
+{% endblock %}

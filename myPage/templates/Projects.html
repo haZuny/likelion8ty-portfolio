@@ -1,0 +1,242 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block css %}{% static "css/Projects.css" %}{% endblock %}
+
+{% block logo %}{% static "img/ProjectLogo.png" %}{% endblock %}
+
+{% block logoText %}진행한 프로젝트{% endblock %}
+
+{% block js %}{% static 'js/Projects.js' %}{% endblock %}
+
+{% block content %}
+
+<!-- 컨텐츠 1페이지 -->
+<div id="background1" class="backgroundBig">
+
+    <div id="background">
+
+        <div id="projectTitle">Project. 1</div>
+
+        <div id="projectContent">
+
+            <!-- 사진 -->
+            <div id="imgContainer">
+                
+                <div id = "imgBox1" class="imgBox">
+                    <div class="imgWrap"><img class="projectImg" src = "{% static 'img/wordStudy1.png' %}"></div>
+                    <div class="imgWrap"><img class="projectImg" src = "{% static 'img/wordStudy2.gif' %}"></div>
+                    <div class="imgWrap"><img class="projectImg" src = "{% static 'img/wordStudy3.gif' %}"></div>
+                    <div class="imgWrap"><img class="projectImg" src = "{% static 'img/wordStudy4.gif' %}"></div>
+                    <div class="imgWrap"><img class="projectImg" src = "{% static 'img/wordStudy5.PNG' %}"></div>
+                    <div class="imgWrap"><img class="projectImg" src = "{% static 'img/wordStudy6.png' %}"></div>
+                </div>
+                
+                <!-- 화살표 -->
+                <img class="imgArrow" src="{% static 'img/arrowL.png' %}" onclick="imgSlideL()">
+                <img class="imgArrow" src="{% static 'img/arrowR.png' %}" onclick="imgSlideR()">
+            </div>
+
+            <!-- 설명 -->
+            <div id="explainContainer">
+                <div class="explainTop">
+                    <div class="titleProject">단어학습 프로그램</div>
+                </div>
+                <div class="explainMiddle">
+                    <div class="dateProject">2019.9 ~ 2019.12</div>
+                </div>
+                <div class="explainBottom">
+                    <div class = "textProject"></div>
+                    <div class = "textProject">영단어 학습을 도와주는 프로그램입니다.</div>
+                    <div class = "textProject">네이버 영어사전을 기반으로 무수히 많은 단어를 공부할수 있습니다.</div>
+                    <div class = "textProject">연관검색어 기능으로 유사한 단어를 학습할수있습니다.</div>
+                    <div class = "textProject">또한 이미지를 활용하여 더욱 학습을 더욱 쉽게 보조합니다.</div>
+                    <div class = "textProject">sqlite3을 이용하여 저장된 데이터를 통해 사용자에게 맞춘 오답문제를 제공합니다.</div>
+                    <div class = "textProject"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- 컨텐츠 2페이지 -->
+<div id="background2"class="backgroundBig">
+
+    <div id="background">
+
+        <div id="projectTitle">Project. 2</div>
+
+        <div id="projectContent">
+
+            <!-- 사진 -->
+            <div id="imgContainer">
+                
+                <div id = "imgBox2" class="imgBox">
+                    <div class="imgWrap"><img class="projectImg" src = "{% static 'img/tetris1.png' %}"></div>
+                    <div class="imgWrap"><img class="projectImg" src = "{% static 'img/tetris2.png' %}"></div>
+                    <div class="imgWrap"><img class="projectImg" src = "{% static 'img/tetris3.png' %}"></div>
+                </div>
+                
+                <!-- 화살표 -->
+                <img class="imgArrow" src="{% static 'img/arrowL.png' %}" onclick="imgSlideL()">
+                <img class="imgArrow" src="{% static 'img/arrowR.png' %}" onclick="imgSlideR()">
+            </div>
+
+            <!-- 설명 -->
+            <div id="explainContainer">
+                <div class="explainTop">
+                    <div class="titleProject">테트리스</div>
+                </div>
+                <div class="explainMiddle">
+                    <div class="dateProject">2019.12 ~ 2020.01</div>
+                </div>
+                <div class="explainBottom">
+                    <div class = "textProject"></div>
+                    <div class = "textProject">추억의 테트리스 게임입니다.</div>
+                    <div class = "textProject">파이썬의 pygame라이브러리를 기반으로 만들었습니다.</div>
+                    <div class = "textProject">블럭 회전, 블럭 바로 내리기, 완성된 줄 삭제 등의 기능을 구현했습니다.</div>
+                    <div class = "textProject"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- 컨텐츠 3페이지 -->
+<div id="background3" class="backgroundBig">
+
+    <div id="background">
+
+        <div id="projectTitle">Project. 3</div>
+
+        <div id="projectContent">
+
+            <!-- 사진 -->
+            <div id="imgContainer">
+                
+                <div id = "imgBox3" class="imgBox">
+                    <div class="imgWrap"><img class="projectImg" src = "{% static 'img/quiz1.png' %}"></div>
+                    <div class="imgWrap"><img class="projectImg" src = "{% static 'img/quiz2.png' %}"></div>
+                    <div class="imgWrap"><img class="projectImg" src = "{% static 'img/quiz3.png' %}"></div>
+                    <div class="imgWrap"><img class="projectImg" src = "{% static 'img/quiz4.png' %}"></div>
+                    <div class="imgWrap"><img class="projectImg" src = "{% static 'img/quiz5.png' %}"></div>
+                    <div class="imgWrap"><img class="projectImg" src = "{% static 'img/quiz6.png' %}"></div>
+                </div>
+                
+                <!-- 화살표 -->
+                <img class="imgArrow" src="{% static 'img/arrowL.png' %}" onclick="imgSlideL()">
+                <img class="imgArrow" src="{% static 'img/arrowR.png' %}" onclick="imgSlideR()">
+            </div>
+
+            <!-- 설명 -->
+            <div id="explainContainer">
+                <div class="explainTop">
+                    <div class="titleProject">퀴즈 프로그램</div>
+                </div>
+                <div class="explainMiddle">
+                    <div class="dateProject">2020.06 ~ 2020.07</div>
+                </div>
+                <div class="explainBottom">
+                    <div class = "textProject"></div>
+                    <div class = "textProject">자바 기반의 퀴즈프로그램입니다.</div>
+                    <div class = "textProject">로그인 및 회원가입 기능을 지원하여 사용자 각자의 문제를 관리합니다.</div>
+                    <div class = "textProject">문제 추가, 제거 기능을 사용하여 사용자가 직접 문제를 관리할수있습니다.</div>
+                    <div class = "textProject"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- 컨텐츠 4페이지 -->
+<div id="background4" class="backgroundBig">
+
+    <div id="background">
+
+        <div id="projectTitle">Project. 4</div>
+
+        <div id="projectContent">
+
+            <!-- 사진 -->
+            <div id="imgContainer">
+                
+                <div id = "imgBox4" class="imgBox">
+                    <div class="imgWrap"><img class="projectImg" src = "{% static 'img/alggago1.png' %}"></div>
+                    <div class="imgWrap"><img class="projectImg" src = "{% static 'img/alggago2.png' %}"></div>
+                    <div class="imgWrap"><img class="projectImg" src = "{% static 'img/alggago3.png' %}"></div>
+                </div>
+                
+                <!-- 화살표 -->
+                <img class="imgArrow" src="{% static 'img/arrowL.png' %}" onclick="imgSlideL()">
+                <img class="imgArrow" src="{% static 'img/arrowR.png' %}" onclick="imgSlideR()">
+            </div>
+
+            <!-- 설명 -->
+            <div id="explainContainer">
+                <div class="explainTop">
+                    <div class="titleProject">알까고 인공지능 리그</div>
+                </div>
+                <div class="explainMiddle">
+                    <div class="dateProject">2020.09 ~ 2020.10</div>
+                </div>
+                <div class="explainBottom">
+                    <div class = "textProject"></div>
+                    <div class = "textProject">멋쟁이사자처럼에서 주최하는 인공지능 대회입니다.</div>
+                    <div class = "textProject">최선의 알까기 알고리즘을 구현했습니다.</div>
+                    <div class = "textProject">2020 Alggago대회에서 준우승을 차지했습니다.</div>
+                    <div class = "textProject"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- 컨텐츠 5페이지 -->
+<div id="background5" class="backgroundBig">
+
+    <div id="background">
+
+        <div id="projectTitle">Project. 5</div>
+
+        <div id="projectContent">
+
+            <!-- 사진 -->
+            <div id="imgContainer">
+                
+                <div id = "imgBox5" class="imgBox">
+                    <div class="imgWrap"><img class="projectImg" src = "{% static 'img/galaga1.png' %}"></div>
+                    <div class="imgWrap"><img class="projectImg" src = "{% static 'img/galaga2.png' %}"></div>
+                    <div class="imgWrap"><img class="projectImg" src = "{% static 'img/galaga3.png' %}"></div>
+                    <div class="imgWrap"><img class="projectImg" src = "{% static 'img/galaga4.png' %}"></div>
+                </div>
+                
+                <!-- 화살표 -->
+                <img class="imgArrow" src="{% static 'img/arrowL.png' %}" onclick="imgSlideL()">
+                <img class="imgArrow" src="{% static 'img/arrowR.png' %}" onclick="imgSlideR()">
+            </div>
+
+            <!-- 설명 -->
+            <div id="explainContainer">
+                <div class="explainTop">
+                    <div class="titleProject">Galaga 게임</div>
+                </div>
+                <div class="explainMiddle">
+                    <div class="dateProject">2020.11 ~ 2020.11</div>
+                </div>
+                <div class="explainBottom">
+                    <div class = "textProject"></div>
+                    <div class = "textProject">자바스크립트로 만든 슈팅게임입니다.</div>
+                    <div class = "textProject"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

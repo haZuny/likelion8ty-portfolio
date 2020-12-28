@@ -1,0 +1,152 @@
+/* set background color */
+#bck_el1{background-color: #D9CDAE;}
+#bck_el2{background-color: #BFB9D9;}
+#bck_el3{background-color: #F0CECD;}
+
+/* 배경 */
+.backgroundBig{
+    width: 100vw;
+    height: 150vh;
+    
+    background-color: #a197ce;
+    
+    position: relative;
+    z-index: 0.1;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+#background{
+    width: 100vw;
+    height: 100vh;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#background2, #background4{
+    background-color: #9286c7;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Sunflower:wght@300&display=swap');
+#projectTitle{
+    width: 100vw;
+    height: 7vh;
+
+    font-family: 'Nanum Gothic Coding', monospace;
+    font-size: 7vh;
+    color: white;
+
+    margin-bottom: 5vh;
+
+    text-align: center;
+    vertical-align: middle;
+}
+
+#projectContent{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* 사진 */
+#imgContainer{
+    width: 40vw;
+    height: 70vh;
+
+    overflow: hidden;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.imgArrow{
+    width: 2vw;
+    height: 2vw;
+    border-radius: 100%;
+    margin: 0.5vw;
+    opacity: 0.5;
+    position: relative;
+    z-index: 500;
+}
+.imgArrow:hover{
+    opacity: 1;
+}
+.imgBox{
+    height: 70vh;
+    background-color: black;
+
+    position: absolute;
+
+    display: flex;
+}
+.imgWrap{
+    width: 40vw;
+    height: 70vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.projectImg{
+    max-width: 40vw;
+    max-height: 70vh;
+    width: auto;
+    height: auto;
+}
+
+
+
+
+/* 설명 */
+#explainContainer{
+    background-color: #BFB9D9;
+    width: 38vw;
+    height: 70vh;
+    margin-left: 2vw;
+    border: solid 1vh #5e519b;
+}
+.explainTop{
+    width: 100%;
+    height: 20%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.titleProject{
+    font-family: 'Sunflower', sans-serif;
+    font-size: 5vh;
+    font-weight: bold;
+}
+.explainMiddle{
+    width: 100%;
+    height: 7%;
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.dateProject{
+    font-family: 'Nanum Gothic Coding', monospace;
+    font-size: 2.5vh;
+    opacity: 0.7;
+    margin: 3vw;
+}
+.explainBottom{
+    width: 100%;
+    height: 73%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.textProject{
+    width: 90%;
+    font-family: 'Sunflower', sans-serif;
+    font-size: 3vh;
+}
